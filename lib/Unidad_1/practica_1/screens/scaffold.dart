@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/Ejercicio1.dart';
+import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/cardwidget.dart';
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/columnwidget.dart';
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listTileWidget.dart';
+import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listviewwidget.dart';
 
 class ScaffoldPrueba extends StatelessWidget {
   const ScaffoldPrueba({super.key});
@@ -16,7 +18,7 @@ class ScaffoldPrueba extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
-        child: ListTileWidget(),
+        child: ListViewWidget(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
