@@ -15,7 +15,9 @@ class CardWidget extends StatelessWidget {
         child: Column(children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
-            child: Image.asset("assets/images/Fondo.png"),
+            child: Image.network(
+              "assets/images/Fondo.png",
+            ),
           ),
         ]),
       ),

@@ -13,33 +13,65 @@ class ListViewTileWidget extends StatelessWidget {
 
 class ListTileContactWidget extends StatelessWidget {
   final String nombre;
-  final String numeroControl;
-  final String carrera;
-  final String apellido;
+  final String imagen;
+  final double precio;
+  final int stock;
+  final double precioOferta;
+  final bool oferta;
   const ListTileContactWidget(
       {super.key,
       required this.nombre,
-      required this.numeroControl,
-      required this.apellido,
-      required this.carrera});
+      required this.stock,
+      required this.precioOferta,
+      required this.precio,
+      required this.oferta,
+      required this.imagen});
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        child: Text(nombre.toString().substring(0, 1).toUpperCase() +
-            apellido.toString().substring(0, 1).toUpperCase()),
-      ),
-      title: Text(
-        nombre,
-        style: TextStyle(
-            color: carrera == "Sistemas" ? Colors.green : Colors.black),
-      ),
-      subtitle: Column(
-        children: [
-          Text(numeroControl),
-          Icon(carrera == "Sistemas" ? Icons.computer : Icons.no_accounts)
-        ],
+    return Container(
+      padding: EdgeInsets.all(20),
+      height: 300,
+      width: 100,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: Column(children: [
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: ClipRect(
+                  child: Image.asset(
+                    imagen,
+                    width: 150,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 50,
+              ),
+              Column(
+                children: [
+                  Text(nombre),
+                  Text(
+                    "Precio: ${precio}",
+                    style: TextStyle(
+                      decoration: oferta
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                    ),
+                  ),
+                  Text(oferta ? "Oferta: ${precioOferta}" : ""),
+                  Text("Stock: ${stock}"),
+                ],
+              )
+            ],
+          )
+        ]),
       ),
     );
   }
