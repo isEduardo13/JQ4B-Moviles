@@ -66,7 +66,7 @@ class ListTileContactWidget extends StatelessWidget {
                     ),
                   ),
                   Text(oferta ? "Oferta: ${precioOferta}" : ""),
-                  Text("Stock: ${stock}"),
+                  Text(stock <= 0 ? "Agotado" : "Stock: ${stock}"),
                 ],
               )
             ],

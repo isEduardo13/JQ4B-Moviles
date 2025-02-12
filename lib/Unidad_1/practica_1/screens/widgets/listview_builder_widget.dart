@@ -36,7 +36,7 @@ class ListViewBuilderWidget extends StatelessWidget {
         imagen: "assets/images/laptop.png"),
     Producto(
         nombre: "Procesador Ryzen 7",
-        stock: 20,
+        stock: 0,
         precioOferta: 200,
         precio: 450,
         oferta: false,
