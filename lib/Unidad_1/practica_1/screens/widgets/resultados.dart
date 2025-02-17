@@ -110,9 +110,10 @@ class ResultadosWidgetCard extends StatelessWidget {
                 SizedBox(
                   width: 50,
                 ),
-                Icon(golesLocal >= golesVisitante
-                    ? Icons.arrow_circle_left
-                    : Icons.dangerous)
+                SizedBox(
+                    child: golesLocal <= golesVisitante
+                        ? Icon(Icons.arrow_circle_left)
+                        : Text("")),
               ],
             ),
             SizedBox(
@@ -140,9 +141,10 @@ class ResultadosWidgetCard extends StatelessWidget {
                 SizedBox(
                   width: 50,
                 ),
-                Icon(golesLocal <= golesVisitante
-                    ? Icons.arrow_circle_left
-                    : Icons.dangerous),
+                SizedBox(
+                    child: golesLocal <= golesVisitante
+                        ? Icon(Icons.arrow_circle_left)
+                        : Text("")),
               ],
             ),
             SizedBox(
