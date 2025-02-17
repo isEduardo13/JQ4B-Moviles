@@ -7,6 +7,7 @@ import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listTileWidget.d
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listview_builder_widget.dart';
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listview_tile_widget.dart';
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listviewwidget.dart';
+import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/resultados.dart';
 
 class ScaffoldPrueba extends StatelessWidget {
   const ScaffoldPrueba({super.key});
@@ -14,13 +15,26 @@ class ScaffoldPrueba extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Primera pantalla de flutter ',
+        title: Row(
+          children: [
+            Text("Deportes"),
+            SizedBox(width: 50),
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {},
+            ),
+            SizedBox(width: 50),
+            IconButton(
+              icon: Icon(Icons.favorite),
+              onPressed: () {},
+            ),
+          ],
         ),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(child: ListViewBuilderWidget()
+      body: Center(child: ResultadosWidget()
+          //ListViewBuilderWidget()
           //ListViewTileWidget()
           //ListViewWidget(),
           ),
