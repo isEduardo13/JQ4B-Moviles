@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:holaflutter/unidad_2/practica1/provider/counter_provider.dart';
+import 'package:provider/provider.dart';
 
 class FocosWidget extends StatefulWidget {
   const FocosWidget({super.key});
@@ -8,8 +10,7 @@ class FocosWidget extends StatefulWidget {
 }
 
 class _FocosWidgetState extends State<FocosWidget> {
-  Color color = Colors.black;
-  int contador = 0;
+  Color color = const Color.fromARGB(255, 255, 255, 255);
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +21,20 @@ class _FocosWidgetState extends State<FocosWidget> {
           width: 150,
           height: 150,
           color: color,
-          child: Text(""),
+          child: Text(context.watch<CounterProvider>().counter.toString()),
         ),
         IconButton(
             onPressed: () {
               setState(() {
-                contador++;
-
-                if (contador % 2 != 0) {
+                int counterProvider = context.read<CounterProvider>().counter;
+                int counter = counterProvider;
+                context.read<CounterProvider>().increment();
+                if (counter % 2 != 0) {
                   color = Colors.yellow.shade400;
                 } else {
                   color = Colors.grey;
                 }
-                if (contador > 12) {
+                if (counter > 12) {
                   color = Colors.red;
                 }
               });
