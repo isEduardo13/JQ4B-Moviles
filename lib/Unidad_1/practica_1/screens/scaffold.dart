@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/Ejercicio1.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/cardwidget.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/columnwidget.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/drawerwidget.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listTileWidget.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listview_builder_widget.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listview_tile_widget.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listviewwidget.dart';
+
 import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/resultados.dart';
+import 'package:holaflutter/unidad_2/practica2/widgets/drawerwidget.dart';
 
 class ScaffoldPrueba extends StatelessWidget {
   const ScaffoldPrueba({super.key});

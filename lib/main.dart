@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:holaflutter/unidad_2/practica1/provider/counter_provider.dart';
+import 'package:holaflutter/unidad_2/practica1/provider/domotica_provider.dart';
 import 'package:holaflutter/unidad_2/practica1/provider/theme_provider.dart';
 import 'package:holaflutter/unidad_2/practica2/screens/contact_screens.dart';
+import 'package:holaflutter/unidad_2/practica2/screens/habitacion1_screen.dart';
+import 'package:holaflutter/unidad_2/practica2/screens/habitacion2_screen.dart';
 import 'package:holaflutter/unidad_2/practica2/screens/home_screen.dart';
 import 'package:holaflutter/unidad_2/practica2/screens/theme_screen.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +22,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => CounterProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => DomoticaProvider()),
       ],
       child: MyMaterialApp(),
     );
@@ -34,6 +38,7 @@ class MyMaterialApp extends StatelessWidget {
     return MaterialApp(
       // title: "Deportes",
       debugShowCheckedModeBanner: false,
+
       // theme: themeProvider.currentTheme,
       // theme: ThemeData(
       //     useMaterial3: true,
@@ -42,12 +47,15 @@ class MyMaterialApp extends StatelessWidget {
       //    //ScaffoldPrueba()
       //     //ScaffoldUnidad2Widget(),
       //
+
       routes: {
         '/': (_) => HomeScreen(),
         '/contactos': (_) => const ContactScreen(),
         '/tema': (_) => const ThemeScreen(),
+        '/habitacion1': (_) => const Habitacion1Screen(),
+        '/habitacion2': (_) => const Habitacion2Screen(),
       },
-      initialRoute: '/contactos',
+      initialRoute: '/',
     );
   }
 }
