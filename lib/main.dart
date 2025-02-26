@@ -30,11 +30,11 @@ class MyMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    // final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       // title: "Deportes",
       debugShowCheckedModeBanner: false,
-      theme: themeProvider.currentTheme,
+      // theme: themeProvider.currentTheme,
       // theme: ThemeData(
       //     useMaterial3: true,
       //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal)),
