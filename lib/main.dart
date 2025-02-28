@@ -7,6 +7,7 @@ import 'package:holaflutter/unidad_2/practica2/screens/habitacion1_screen.dart';
 import 'package:holaflutter/unidad_2/practica2/screens/habitacion2_screen.dart';
 import 'package:holaflutter/unidad_2/practica2/screens/home_screen.dart';
 import 'package:holaflutter/unidad_2/practica2/screens/theme_screen.dart';
+import 'package:holaflutter/unidad_2/practica3/dogScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -49,7 +50,7 @@ class MyMaterialApp extends StatelessWidget {
       //
 
       routes: {
-        '/': (_) => HomeScreen(),
+        '/': (_) => DogScreen(),
         '/contactos': (_) => const ContactScreen(),
         '/tema': (_) => const ThemeScreen(),
         '/habitacion1': (_) => const Habitacion1Screen(),
