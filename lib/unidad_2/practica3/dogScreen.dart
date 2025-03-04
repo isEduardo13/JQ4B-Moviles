@@ -41,7 +41,8 @@ class _DogScreenState extends State<DogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dog Screen'),
+        title: Text('Screen'),
+        centerTitle: true,
       ),
       body: FutureBuilder(
         future: getCocktail(),
@@ -56,7 +57,6 @@ class _DogScreenState extends State<DogScreen> {
                   ),
                   Text(
                       snapshot.data?.drinks.first.strDrink ?? "Sin resultados"),
-                  CupertinoButton(onPressed: () {}, child: Text("Consultar")),
                 ],
               ),
               //Text(snapshot.data?.status ?? "Sin resultados"),
