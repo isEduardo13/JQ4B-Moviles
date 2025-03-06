@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/Unidad_1/practica_1/models/persona.dart';
+import 'package:holaflutter/unidad_2/practica4/models/persona.dart';
+import 'package:holaflutter/unidad_2/practica4/providers/ListaPersonas_Provider.dart';
 import 'package:holaflutter/unidad_2/practica4/textbox_widget.dart';
+import 'package:provider/provider.dart';
 
 class Formularioscreen extends StatefulWidget {
   const Formularioscreen({super.key});
@@ -13,11 +15,11 @@ class _FormularioscreenState extends State<Formularioscreen> {
   final txtNomController = TextEditingController();
   final txtTelController = TextEditingController();
   final txtSexController = TextEditingController();
-  Persona p = Persona(nombre: "", telefono: "", sexo: "");
   final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    final lista = Provider.of<ListapersonasProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Formulario"),
@@ -53,17 +55,15 @@ class _FormularioscreenState extends State<Formularioscreen> {
                 ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        setState(() {
-                          p = Persona(
-                              nombre: txtNomController.text,
-                              telefono: txtTelController.text,
-                              sexo: txtSexController.text);
-                        });
+                        Persona persona = Persona(
+                            nombre: txtNomController.text,
+                            telefono: txtTelController.text,
+                            sexo: txtSexController.text);
+                        lista.addPersona(persona);
+                        Navigator.pop(context);
                       }
                     },
-                    child: Text("Ingresar")),
-                Text(p.nombre),
-                Text(p.telefono),
+                    child: Text("Agregar")),
               ],
             )),
       )),

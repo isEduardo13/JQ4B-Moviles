@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578204003859",
+    "project_id": "jq4b-eih-2024-inv-15307",
+    "storage_bucket": "jq4b-eih-2024-inv-15307.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578204003859:android:edbe07745666938eaad9e6",
+        "android_client_info": {
+          "package_name": "com.example.holaflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXk1g2XErXMg5s-qc9VW4ii5qxCOIdY2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
