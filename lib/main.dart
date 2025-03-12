@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:holaflutter/ExamenU2/provider/user_provider.dart';
-import 'package:holaflutter/ExamenU2/screens/PrincipalScreen.dart';
-import 'package:holaflutter/ExamenU2/screens/RandomUserScreen.dart';
+import 'package:holaflutter/unidad_3/practica1/screens/provider/user_provider.dart';
+import 'package:holaflutter/unidad_3/practica1/screens/PrincipalScreen.dart';
+import 'package:holaflutter/unidad_3/practica1/screens/RandomUserScreen.dart';
 import 'package:holaflutter/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -48,7 +48,7 @@ class MyMaterialApp extends StatelessWidget {
 
       routes: {
         '/': (_) => PrincipalscreenExamen(),
-        'RandomUserScreen': (_) => const RandomUserScreen(),
+        '/random': (_) => RandomUserScreen(),
       },
       initialRoute: '/',
     );
