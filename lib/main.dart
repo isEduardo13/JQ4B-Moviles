@@ -1,18 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:holaflutter/ExamenU2/provider/user_provider.dart';
+import 'package:holaflutter/ExamenU2/screens/PrincipalScreen.dart';
+import 'package:holaflutter/ExamenU2/screens/RandomUserScreen.dart';
 import 'package:holaflutter/firebase_options.dart';
-import 'package:holaflutter/unidad_2/practica1/provider/counter_provider.dart';
-import 'package:holaflutter/unidad_2/practica1/provider/domotica_provider.dart';
-import 'package:holaflutter/unidad_2/practica1/provider/theme_provider.dart';
-import 'package:holaflutter/unidad_2/practica2/screens/contact_screens.dart';
-import 'package:holaflutter/unidad_2/practica2/screens/habitacion1_screen.dart';
-import 'package:holaflutter/unidad_2/practica2/screens/habitacion2_screen.dart';
-import 'package:holaflutter/unidad_2/practica2/screens/home_screen.dart';
-import 'package:holaflutter/unidad_2/practica2/screens/theme_screen.dart';
-import 'package:holaflutter/unidad_2/practica3/dogScreen.dart';
-import 'package:holaflutter/unidad_2/practica4/PrincipalScreen.dart';
-import 'package:holaflutter/unidad_2/practica4/formularioScreen.dart';
-import 'package:holaflutter/unidad_2/practica4/providers/ListaPersonas_Provider.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -30,12 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CounterProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => DomoticaProvider()),
-        ChangeNotifierProvider(create: (_) => ListapersonasProvider())
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
       child: MyMaterialApp(),
     );
   }
@@ -61,12 +47,8 @@ class MyMaterialApp extends StatelessWidget {
       //
 
       routes: {
-        '/': (_) => Principalscreen(),
-        '/formulario': (_) => const Formularioscreen(),
-        '/contactos': (_) => const ContactScreen(),
-        '/tema': (_) => const ThemeScreen(),
-        '/habitacion1': (_) => const Habitacion1Screen(),
-        '/habitacion2': (_) => const Habitacion2Screen(),
+        '/': (_) => PrincipalscreenExamen(),
+        'RandomUserScreen': (_) => const RandomUserScreen(),
       },
       initialRoute: '/',
     );
