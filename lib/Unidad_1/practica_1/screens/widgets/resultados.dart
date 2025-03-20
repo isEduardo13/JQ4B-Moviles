@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/Unidad_1/practica_1/models/partido.dart';
+import 'package:holaflutter/unidad_1/practica_1/models/partido.dart';
 
 class ResultadosWidget extends StatelessWidget {
   ResultadosWidget({super.key});

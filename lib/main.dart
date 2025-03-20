@@ -1,8 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:holaflutter/unidad_3/Screens/actualizar_screen.dart';
+import 'package:holaflutter/unidad_3/Screens/agregar_screen.dart';
+import 'package:holaflutter/unidad_3/Screens/eliminar_screen.dart';
+import 'package:holaflutter/unidad_3/Screens/formulario_producto_screen.dart';
+import 'package:holaflutter/unidad_3/Screens/principal_firebase_screen.dart';
+import 'package:holaflutter/unidad_3/Screens/productos_screen.dart';
 import 'package:holaflutter/unidad_3/practica1/screens/provider/user_provider.dart';
-import 'package:holaflutter/unidad_3/practica1/screens/PrincipalScreen.dart';
-import 'package:holaflutter/unidad_3/practica1/screens/RandomUserScreen.dart';
 import 'package:holaflutter/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +18,9 @@ Future<void> main() async {
   );
   return runApp(const MyApp());
 }
+// void main() {
+//   return runApp(MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -47,8 +54,10 @@ class MyMaterialApp extends StatelessWidget {
       //
 
       routes: {
-        '/': (_) => PrincipalscreenExamen(),
-        '/random': (_) => RandomUserScreen(),
+        '/': (context) => const ProductosScreen(),
+        '/agregar': (context) => const AgregarScreen(),
+        '/actualizar': (context) => const ActualizarScreen(),
+        '/eliminar': (context) => const EliminarScreen()
       },
       initialRoute: '/',
     );

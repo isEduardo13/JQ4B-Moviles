@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/Unidad_1/practica_1/models/alumno.dart';
-import 'package:holaflutter/Unidad_1/practica_1/models/producto.dart';
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/listview_tile_widget.dart';
+import 'package:holaflutter/unidad_1/practica_1/models/alumno.dart';
+import 'package:holaflutter/unidad_1/practica_1/models/producto.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/listview_tile_widget.dart';
 
 class ListViewBuilderWidget extends StatelessWidget {
   ListViewBuilderWidget({super.key});

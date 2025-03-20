@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:holaflutter/Unidad_1/practica_1/screens/widgets/resultados.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/resultados.dart';
 import 'package:holaflutter/unidad_2/practica2/widgets/drawerwidget.dart';
 
 class ScaffoldPrueba extends StatelessWidget {
