@@ -22,6 +22,7 @@ class _PrincipalFirebaseScreenState extends State<PrincipalFirebaseScreen> {
       appBar: AppBar(
         title: Text('Base de datos Firebase'),
         centerTitle: true,
+        actions: [],
       ),
       body: Center(
         child: ListTileProduct(),

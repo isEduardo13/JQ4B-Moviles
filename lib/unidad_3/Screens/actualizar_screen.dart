@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holaflutter/unidad_3/Models/product.dart';
+import 'package:holaflutter/unidad_3/providers/carrito_provider.dart';
+import 'package:provider/provider.dart';
 import '../Services/firebase_transacciones.dart';
 import '../widgets/formTextField.dart';
 
@@ -30,11 +32,13 @@ class _FormActualizarProductosState extends State<FormActualizarProductos> {
   final txtNombreController = TextEditingController();
   final txtPrecioController = TextEditingController();
   final txtStockController = TextEditingController();
+  final txtCantidadController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final Product parametros =
         ModalRoute.of(context)!.settings.arguments as Product;
     final idd = parametros.id;
+    txtCantidadController.text = "";
     txtNombreController.text = parametros.nombre;
     txtPrecioController.text = parametros.precio.toString();
     txtStockController.text = parametros.stock.toString();
@@ -64,52 +68,69 @@ class _FormActualizarProductosState extends State<FormActualizarProductos> {
                 icono: Icons.swap_vert_circle_outlined,
                 prop: 'stock'),
             Center(
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size(150, 50),
-                      ),
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          // ScaffoldMessenger.of(context).showSnackBar(
-                          //   const SnackBar(
-                          //     content: Text('Datos validados correctamente'),
-                          //   ),
-                          // );
-                          Product p = Product(
-                              id: idd,
-                              nombre: txtNombreController.value.text,
-                              precio:
-                                  double.parse(txtPrecioController.value.text),
-                              stock: int.parse(txtStockController.value.text));
-                          int code = await updateProducto(p);
-                          if (!mounted) return;
-                          if (code == 200) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Actualizado correctamente'),
-                              ),
-                            );
-                            Navigator.of(context)
-                                .pushNamedAndRemoveUntil('/', (route) => false);
-                          }
-                        }
-                      },
-                      child: const Text('Actualizar'),
-                    ),
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size(150, 50),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/eliminar',
-                            arguments: parametros);
-                      },
-                      child: const Text('Eliminar'),
-                    ),
-                  ]),
+              child: Wrap(children: [
+                FormTextField(
+                    txtController: txtCantidadController,
+                    icono: Icons.shopping_bag,
+                    prop: 'la cantidad',
+                    inputType: TextInputType.number),
+                OutlinedButton(
+                    onPressed: () {
+                      if (int.parse(txtCantidadController.text) >=
+                          parametros.stock) {
+                      } else {
+                        Product p = Product(
+                            id: idd,
+                            nombre: txtNombreController.value.text,
+                            precio:
+                                double.parse(txtPrecioController.value.text),
+                            stock: int.parse(txtStockController.value.text));
+                        context.read<CarritoProvider>().addToCar(p);
+                      }
+                    },
+                    child: Text("Agregar al carrito")),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(150, 50),
+                  ),
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(
+                      //     content: Text('Datos validados correctamente'),
+                      //   ),
+                      // );
+                      Product p = Product(
+                          id: idd,
+                          nombre: txtNombreController.value.text,
+                          precio: double.parse(txtPrecioController.value.text),
+                          stock: int.parse(txtStockController.value.text));
+                      int code = await updateProducto(p);
+                      if (!mounted) return;
+                      if (code == 200) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Actualizado correctamente'),
+                          ),
+                        );
+                        Navigator.of(context)
+                            .pushNamedAndRemoveUntil('/', (route) => false);
+                      }
+                    }
+                  },
+                  child: const Text('Actualizar'),
+                ),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(150, 50),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/eliminar',
+                        arguments: parametros);
+                  },
+                  child: const Text('Eliminar'),
+                ),
+              ]),
             ),
           ],
         ),

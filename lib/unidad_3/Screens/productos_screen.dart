@@ -13,6 +13,14 @@ class _ProductosScreenState extends State<ProductosScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Consultar Productos'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.pushNamed(context, '/carrito');
+            },
+          )
+        ],
       ),
       body: FutureBuilder(
         future: getProducts(),
