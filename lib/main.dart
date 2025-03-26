@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:holaflutter/unidad_3/Screens/actualizar_screen.dart';
 import 'package:holaflutter/unidad_3/Screens/agregar_screen.dart';
 import 'package:holaflutter/unidad_3/Screens/carrito_screen.dart';
+import 'package:holaflutter/unidad_3/Screens/comprar_producto.dart';
 import 'package:holaflutter/unidad_3/Screens/eliminar_screen.dart';
-import 'package:holaflutter/unidad_3/Screens/formulario_producto_screen.dart';
-import 'package:holaflutter/unidad_3/Screens/principal_firebase_screen.dart';
 import 'package:holaflutter/unidad_3/Screens/productos_screen.dart';
 import 'package:holaflutter/unidad_3/practica1/screens/provider/user_provider.dart';
 import 'package:holaflutter/firebase_options.dart';
@@ -64,6 +63,7 @@ class MyMaterialApp extends StatelessWidget {
         '/actualizar': (context) => const ActualizarScreen(),
         '/eliminar': (context) => const EliminarScreen(),
         '/carrito': (context) => CarritoScreen(),
+        '/detalle': (context) => const ComprarProducto(),
       },
       initialRoute: '/',
     );

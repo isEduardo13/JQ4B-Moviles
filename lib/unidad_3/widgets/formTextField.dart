@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class FormTextField extends StatelessWidget {
-  const FormTextField(
-      {super.key,
-      required this.txtController,
-      required this.icono,
-      required this.prop,
-      required this.inputType});
-
+  FormTextField({
+    super.key,
+    required this.txtController,
+    required this.icono,
+    required this.prop,
+    required this.inputType,
+    this.horizontal = 15,
+  });
+  double horizontal;
   final String prop;
   final TextEditingController txtController;
   final IconData icono;
@@ -15,8 +17,9 @@ class FormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double horizontal = this.horizontal;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: horizontal),
       child: TextFormField(
         keyboardType: inputType,
         controller: txtController,

@@ -35,8 +35,16 @@ class _ProductosScreenState extends State<ProductosScreen> {
                       snapshot.data?[index].precio.toString() ?? "sin precio"),
                   trailing: const Icon(Icons.arrow_right),
                   onTap: () => {
-                    Navigator.pushNamed(context, '/actualizar',
+                    Navigator.pushNamed(context, '/detalle',
                         arguments: snapshot.data?[index])
+                  },
+                  leading: CircleAvatar(
+                    radius: 40,
+                    child: Icon(Icons.shopping_cart),
+                  ),
+                  onLongPress: () {
+                    Navigator.pushNamed(context, '/actualizar',
+                        arguments: snapshot.data?[index]);
                   },
                 );
               },

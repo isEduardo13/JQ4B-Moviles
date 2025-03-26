@@ -21,7 +21,13 @@ class CarritoScreen extends StatelessWidget {
         itemCount: productos.length,
         itemBuilder: (context, index) => ListTile(
           title: Text(productos[index].nombre),
-          subtitle: Text('\$${productos[index].nombre}'),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Precio: ${productos[index].precio}"),
+              Text("Cantidad: ${productos[index].stock}"),
+            ],
+          ),
         ),
       ),
     );

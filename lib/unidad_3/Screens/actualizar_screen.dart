@@ -69,26 +69,6 @@ class _FormActualizarProductosState extends State<FormActualizarProductos> {
                 prop: 'stock'),
             Center(
               child: Wrap(children: [
-                FormTextField(
-                    txtController: txtCantidadController,
-                    icono: Icons.shopping_bag,
-                    prop: 'la cantidad',
-                    inputType: TextInputType.number),
-                OutlinedButton(
-                    onPressed: () {
-                      if (int.parse(txtCantidadController.text) >=
-                          parametros.stock) {
-                      } else {
-                        Product p = Product(
-                            id: idd,
-                            nombre: txtNombreController.value.text,
-                            precio:
-                                double.parse(txtPrecioController.value.text),
-                            stock: int.parse(txtStockController.value.text));
-                        context.read<CarritoProvider>().addToCar(p);
-                      }
-                    },
-                    child: Text("Agregar al carrito")),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     minimumSize: const Size(150, 50),
