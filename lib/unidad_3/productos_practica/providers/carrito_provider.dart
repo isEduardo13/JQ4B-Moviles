@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/unidad_3/Models/product.dart';
+import 'package:holaflutter/unidad_3/productos_practica/Models/product.dart';
 
 class CarritoProvider extends ChangeNotifier {
   List<Product> productos = [];

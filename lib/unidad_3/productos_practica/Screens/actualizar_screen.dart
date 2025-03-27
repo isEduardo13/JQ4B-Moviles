@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/unidad_3/Models/product.dart';
-import 'package:holaflutter/unidad_3/providers/carrito_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:holaflutter/unidad_3/productos_practica/Models/product.dart';
 import '../Services/firebase_transacciones.dart';
 import '../widgets/formTextField.dart';
 

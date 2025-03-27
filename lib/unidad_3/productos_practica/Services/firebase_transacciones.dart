@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:holaflutter/unidad_3/Models/product.dart';
+import 'package:holaflutter/unidad_3/productos_practica/Models/product.dart';
 
 FirebaseFirestore firestore = FirebaseFirestore.instance;
 CollectionReference collection = firestore.collection('Productos');

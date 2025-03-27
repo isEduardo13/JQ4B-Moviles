@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holaflutter/unidad_2/practica4/textbox_widget.dart';
-import 'package:holaflutter/unidad_3/Models/product.dart';
-import 'package:holaflutter/unidad_3/Services/firebase_transacciones.dart';
+import 'package:holaflutter/unidad_3/productos_practica/Models/product.dart';
+import 'package:holaflutter/unidad_3/productos_practica/Services/firebase_transacciones.dart';
 
 class FormularioProductoScreen extends StatefulWidget {
   const FormularioProductoScreen({super.key});

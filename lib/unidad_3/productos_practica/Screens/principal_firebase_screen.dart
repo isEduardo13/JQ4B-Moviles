@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/unidad_3/widgets/list_tile_product.dart';
+import 'package:holaflutter/unidad_3/productos_practica/widgets/list_tile_product.dart';
 
 class PrincipalFirebaseScreen extends StatefulWidget {
   const PrincipalFirebaseScreen({super.key});

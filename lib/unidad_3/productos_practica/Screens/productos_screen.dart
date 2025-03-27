@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:holaflutter/unidad_3/Services/firebase_transacciones.dart';
+import 'package:holaflutter/unidad_3/productos_practica/Services/firebase_transacciones.dart';
 
 class ProductosScreen extends StatefulWidget {
   const ProductosScreen({super.key});
