@@ -3,7 +3,7 @@ import 'package:holaflutter/unidad_2/practica1/provider/domotica_provider.dart';
 import 'package:provider/provider.dart';
 
 class Habitacion1Screen extends StatelessWidget {
-  const Habitacion1Screen({Key? key}) : super(key: key);
+  const Habitacion1Screen({super.key});
 
   @override
   Widget build(BuildContext context) {

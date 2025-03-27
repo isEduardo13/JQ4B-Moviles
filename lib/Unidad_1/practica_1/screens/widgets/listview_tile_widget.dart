@@ -58,15 +58,15 @@ class ListTileContactWidget extends StatelessWidget {
                 children: [
                   Text(nombre),
                   Text(
-                    "Precio: ${precio}",
+                    "Precio: $precio",
                     style: TextStyle(
                       decoration: oferta
                           ? TextDecoration.lineThrough
                           : TextDecoration.none,
                     ),
                   ),
-                  Text(oferta ? "Oferta: ${precioOferta}" : ""),
-                  Text(stock <= 0 ? "Agotado" : "Stock: ${stock}"),
+                  Text(oferta ? "Oferta: $precioOferta" : ""),
+                  Text(stock <= 0 ? "Agotado" : "Stock: $stock"),
                 ],
               )
             ],

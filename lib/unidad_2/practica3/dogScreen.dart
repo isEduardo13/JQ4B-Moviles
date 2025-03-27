@@ -1,13 +1,11 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:holaflutter/unidad_2/practica3/cocktail.dart';
 import 'package:holaflutter/unidad_2/practica3/dog.dart';
 import 'package:holaflutter/unidad_2/practica3/drinks.dart';
 import 'package:http/http.dart' as http;
 
 class DogScreen extends StatefulWidget {
-  const DogScreen({Key? key}) : super(key: key);
+  const DogScreen({super.key});
 
   @override
   State<DogScreen> createState() => _DogScreenState();
@@ -15,8 +13,8 @@ class DogScreen extends StatefulWidget {
 
 class _DogScreenState extends State<DogScreen> {
   Future<Dog> getDog() async {
-    var URL = Uri.https("dog.ceo", "api/breeds/image/random");
-    final response = await http.get(URL);
+    var url = Uri.https("dog.ceo", "api/breeds/image/random");
+    final response = await http.get(url);
 
     if (response.statusCode == 200) {
       return Dog.fromJson(json.decode(response.body));

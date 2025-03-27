@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Partido {
   final String visitante;
   final String local;

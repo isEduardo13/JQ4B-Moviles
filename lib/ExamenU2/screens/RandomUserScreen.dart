@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:holaflutter/ExamenU2/provider/user_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import '../models/UserRandom.dart';
+import '../models/user_random.dart';
 
 class RandomUserScreen extends StatelessWidget {
   const RandomUserScreen({super.key});

@@ -151,7 +151,7 @@ class ResultadosWidgetCard extends StatelessWidget {
               height: 20,
             ),
             Text(
-                "Tarjetas amarillas: ${amarillaVisitante} -  Tarjetas Rojas: ${rojaVisitante}")
+                "Tarjetas amarillas: $amarillaVisitante -  Tarjetas Rojas: $rojaVisitante")
           ],
         ),
       ),
