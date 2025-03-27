@@ -32,11 +32,19 @@ class _ProductosScreenState extends State<ProductosScreen> {
                 return ListTile(
                   title: Text(snapshot.data?[index].nombre ?? "sin nombre"),
                   subtitle: Row(children: [
-                    Text("Precio: ${snapshot.data?[index].precio.toString()}" ??
-                        "sin precio"),
+                    Column(children: [
+                      Text("precio: "),
+                      const SizedBox(width: 5),
+                      Text(snapshot.data?[index].precio.toString() ??
+                          "sin precio"),
+                    ]),
                     const SizedBox(width: 10),
-                    Text("Stock: ${snapshot.data?[index].stock.toString()}" ??
-                        "sin stock"),
+                    Column(children: [
+                      Text("stock: "),
+                      const SizedBox(width: 5),
+                      Text(snapshot.data?[index].stock.toString() ??
+                          "sin stock"),
+                    ]),
                   ]),
                   trailing: const Icon(Icons.arrow_right),
                   onTap: () => {
