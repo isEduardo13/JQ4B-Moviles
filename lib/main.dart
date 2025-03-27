@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:holaflutter/camara_practica/CamaraScreen.dart';
 import 'package:holaflutter/unidad_3/Screens/actualizar_screen.dart';
 import 'package:holaflutter/unidad_3/Screens/agregar_screen.dart';
 import 'package:holaflutter/unidad_3/Screens/carrito_screen.dart';
@@ -45,27 +47,21 @@ class MyMaterialApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
-      // title: "Deportes",
+      title: "Deportes",
       debugShowCheckedModeBanner: false,
-
-      // theme: themeProvider.currentTheme,
-      // theme: ThemeData(
-      //     useMaterial3: true,
-      //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal)),
-      // home:
-      //    //ScaffoldPrueba()
-      //     //ScaffoldUnidad2Widget(),
-      //
-
+      home: const ProductosScreen(),
+      navigatorObservers: [FlutterSmartDialog.observer],
+      builder: FlutterSmartDialog.init(),
       routes: {
-        '/': (context) => const ProductosScreen(),
+        '/productos': (context) => const ProductosScreen(),
         '/agregar': (context) => const AgregarScreen(),
         '/actualizar': (context) => const ActualizarScreen(),
         '/eliminar': (context) => const EliminarScreen(),
         '/carrito': (context) => CarritoScreen(),
         '/detalle': (context) => const ComprarProducto(),
+        '/camara': (context) => const Camarascreen(),
       },
-      initialRoute: '/',
+      initialRoute: '/camara',
     );
   }
 }

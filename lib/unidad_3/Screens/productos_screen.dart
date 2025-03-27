@@ -31,8 +31,13 @@ class _ProductosScreenState extends State<ProductosScreen> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(snapshot.data?[index].nombre ?? "sin nombre"),
-                  subtitle: Text(
-                      snapshot.data?[index].precio.toString() ?? "sin precio"),
+                  subtitle: Row(children: [
+                    Text("Precio: ${snapshot.data?[index].precio.toString()}" ??
+                        "sin precio"),
+                    const SizedBox(width: 10),
+                    Text("Stock: ${snapshot.data?[index].stock.toString()}" ??
+                        "sin stock"),
+                  ]),
                   trailing: const Icon(Icons.arrow_right),
                   onTap: () => {
                     Navigator.pushNamed(context, '/detalle',
