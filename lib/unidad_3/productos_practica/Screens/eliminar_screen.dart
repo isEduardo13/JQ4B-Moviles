@@ -30,8 +30,8 @@ class EliminarScreen extends StatelessWidget {
                       content: Text('Eliminado correctamente'),
                     ),
                   );
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/', (route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/Unidad_3/productos', (route) => false);
                 }
               },
               child: const Text('Eliminar'),

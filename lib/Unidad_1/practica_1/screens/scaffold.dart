@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'package:holaflutter/unidad_1/practica_1/screens/widgets/resultados.dart';
-import 'package:holaflutter/unidad_2/practica2/widgets/drawerwidget.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/Ejercicio1.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/cardwidget.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/columnwidget.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/container_widget.dart';
+import 'package:holaflutter/unidad_1/practica_1/screens/widgets/listTileWidget.dart';
 
 class ScaffoldPrueba extends StatelessWidget {
   const ScaffoldPrueba({super.key});
@@ -27,12 +29,22 @@ class ScaffoldPrueba extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(child: ResultadosWidget()
+      body: SingleChildScrollView(
+          child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+            CardWidget(),
+            ColumnWidget(),
+            WidgetPersonalizado(),
+            ListTileWidget(),
+            ContainerWidget(fondo: Colors.blue, texto: "Hola")
+          ])
           //ListViewBuilderWidget()
           //ListViewTileWidget()
           //ListViewWidget(),
           ),
-      drawer: DrawerWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(

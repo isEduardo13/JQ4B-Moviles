@@ -22,7 +22,16 @@ class ComprarProducto extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Nombre: ${parametros.nombre}"),
+            CircleAvatar(
+              radius: 150,
+              backgroundImage: NetworkImage(parametros.imagenUrl!),
+            ),
+            Text(
+              "Nombre: ${parametros.nombre}",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
             Text("Precio: ${parametros.precio}"),
             Text("Stock: ${parametros.stock}"),
             const SizedBox(

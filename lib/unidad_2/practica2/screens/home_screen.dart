@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:holaflutter/unidad_2/practica1/provider/domotica_provider.dart';
 import 'package:holaflutter/unidad_2/practica2/widgets/drawerwidget.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +46,31 @@ class HomeScreen extends StatelessWidget {
             )
           ],
         ),
+      ),
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
+        backgroundColor: Colors.blue,
+        spaceBetweenChildren: 40,
+        children: [
+          SpeedDialChild(
+            child: Icon(Icons.home, color: Colors.white),
+            backgroundColor: Colors.green,
+            label: 'Practica 1',
+            onTap: () => Navigator.pushNamed(context, '/Unidad_2_practica1'),
+          ),
+          SpeedDialChild(
+            child: Icon(Icons.mode_standby_outlined, color: Colors.white),
+            backgroundColor: Colors.orange,
+            label: 'practica 3',
+            onTap: () => Navigator.pushNamed(context, '/Unidad_2_practica3'),
+          ),
+          SpeedDialChild(
+            child: Icon(Icons.person, color: Colors.white),
+            backgroundColor: Colors.purple,
+            label: 'practica 4',
+            onTap: () => Navigator.pushNamed(context, '/Unidad_2_practica4'),
+          ),
+        ],
       ),
     );
   }

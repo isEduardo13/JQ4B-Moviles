@@ -14,11 +14,13 @@ class CardWidget extends StatelessWidget {
         ),
         child: Column(children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: Image.network(
-              "assets/images/Fondo.png",
-            ),
-          ),
+              borderRadius: BorderRadius.circular(20.0),
+              child: Image.asset(
+                'assets/images/Fondo.png',
+                height: 200,
+                width: 200,
+                fit: BoxFit.cover,
+              ))
         ]),
       ),
     );

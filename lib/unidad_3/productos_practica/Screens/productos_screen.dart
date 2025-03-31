@@ -17,7 +17,7 @@ class _ProductosScreenState extends State<ProductosScreen> {
           IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
-              Navigator.pushNamed(context, '/carrito');
+              Navigator.pushNamed(context, '/Unidad_3/productos/carrito');
             },
           )
         ],
@@ -48,15 +48,19 @@ class _ProductosScreenState extends State<ProductosScreen> {
                   ]),
                   trailing: const Icon(Icons.arrow_right),
                   onTap: () => {
-                    Navigator.pushNamed(context, '/detalle',
+                    Navigator.pushNamed(context, '/Unidad_3/productos/detalle',
                         arguments: snapshot.data?[index])
                   },
                   leading: CircleAvatar(
                     radius: 40,
-                    child: Icon(Icons.shopping_cart),
+                    backgroundColor: Colors.transparent,
+                    child: Image(
+                        image: NetworkImage(
+                            snapshot.data?[index].imagenUrl ?? "Sin imagen")),
                   ),
                   onLongPress: () {
-                    Navigator.pushNamed(context, '/actualizar',
+                    Navigator.pushNamed(
+                        context, '/Unidad_3/productos/actualizar',
                         arguments: snapshot.data?[index]);
                   },
                 );
@@ -71,7 +75,7 @@ class _ProductosScreenState extends State<ProductosScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
-          Navigator.pushNamed(context, "/agregar"),
+          Navigator.pushNamed(context, "/Unidad_3/productos/agregar"),
         },
         child: const Icon(Icons.add),
       ),

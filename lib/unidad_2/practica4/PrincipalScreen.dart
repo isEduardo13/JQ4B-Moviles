@@ -12,7 +12,7 @@ class Principalscreen extends StatelessWidget {
       body: ListapersonasWidget(),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/formulario');
+            Navigator.pushNamed(context, '/Unidad_2_practica4/agregar_persona');
           },
           child: const Text("+")),
     );

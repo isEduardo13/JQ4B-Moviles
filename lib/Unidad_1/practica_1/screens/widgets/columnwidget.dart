@@ -7,13 +7,7 @@ class ColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        // ContainerWidget(
-        //   fondo: Colors.deepOrange.shade300,
-        //   texto: "Hola mundooooo",
-        // ),
-        RowWidget()
-      ],
+      children: [RowWidget()],
     );
   }
 }
