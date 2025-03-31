@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:holaflutter/unidad_3/authentication_practica/widgets/formTextField.dart';
@@ -47,6 +45,7 @@ class _IniciarSesionScreenState extends State<IniciarSesionScreen> {
                     passwordController.text.isNotEmpty) {
                   email = emailController.text;
                   password = passwordController.text;
+                  login();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
@@ -56,14 +55,34 @@ class _IniciarSesionScreenState extends State<IniciarSesionScreen> {
               },
               child: const Text('Iniciar Sesión'),
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                final auth = FirebaseAuth.instance;
+                auth.createUserWithEmailAndPassword(
+                    email: email, password: password);
+              },
+              child: const Text('Registrar Usuario'),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Future<void> login() async {
+  Future<bool> login() async {
     final auth = FirebaseAuth.instance;
     auth.signInWithEmailAndPassword(email: email, password: password);
+    if (auth.currentUser != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Inicio de sesión exitoso')),
+      );
+      return true;
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Error al iniciar sesión')),
+      );
+      return false;
+    }
   }
 }
