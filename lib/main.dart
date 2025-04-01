@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:holaflutter/pantalla_principal.dart';
 import 'package:holaflutter/unidad_1/practica_1/screens/scaffold.dart';
@@ -16,6 +17,8 @@ import 'package:holaflutter/unidad_2/practica4/providers/ListaPersonas_Provider.
 import 'package:holaflutter/unidad_3/Principal_Screen_unidad3.dart';
 import 'package:holaflutter/unidad_3/authentication_practica/screens/iniciar_sesion_screen.dart';
 import 'package:holaflutter/unidad_3/camara_practica/CamaraScreen.dart';
+import 'package:holaflutter/unidad_3/practica_bloc/bloc/bank_account_bloc.dart';
+import 'package:holaflutter/unidad_3/practica_bloc/screens/Principal.dart';
 import 'package:holaflutter/unidad_3/practica1/screens/PrincipalScreen.dart';
 import 'package:holaflutter/unidad_3/productos_practica/Screens/actualizar_screen.dart';
 import 'package:holaflutter/unidad_3/productos_practica/Screens/agregar_screen.dart';
@@ -34,7 +37,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  return runApp(const MyApp());
+  return runApp(const MyAppBLoc());
 }
 // void main() {
 //   return runApp(MyApp());
@@ -53,6 +56,18 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CounterProvider()),
         ChangeNotifierProvider(create: (_) => ListapersonasProvider()),
       ],
+      child: MyMaterialApp(),
+    );
+  }
+}
+
+class MyAppBLoc extends StatelessWidget {
+  const MyAppBLoc({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => BankAccountBloc(),
       child: MyMaterialApp(),
     );
   }
@@ -92,6 +107,7 @@ class MyMaterialApp extends StatelessWidget {
         '/Unidad_3/productos/detalle': (context) => const ComprarProducto(),
         '/Unidad_3/productos': (context) => const ProductosScreen(),
         '/Unidad_3/practica1': (context) => const PrincipalscreenExamen(),
+        '/Unidad_3/practica_bloc': (context) => PrincipalSceen(),
       },
       initialRoute: '/principal',
     );
