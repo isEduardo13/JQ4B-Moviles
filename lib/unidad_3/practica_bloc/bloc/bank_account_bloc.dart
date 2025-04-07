@@ -12,5 +12,10 @@ class BankAccountBloc extends Bloc<BankAccountEvent, BankAccountState> {
         transactions: [...state.transactions, event.transaction],
       ));
     });
+    on<WithdrawEvent>((event, emit) {
+      emit(state.copyWith(
+        transactions: [...state.transactions, event.transaction],
+      ));
+    });
   }
 }

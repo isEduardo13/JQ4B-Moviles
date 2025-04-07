@@ -9,3 +9,9 @@ class DepositEvent extends BankAccountEvent {
 
   DepositEvent({required this.transaction});
 }
+
+class WithdrawEvent extends BankAccountEvent {
+  final Transaction transaction;
+
+  WithdrawEvent({required this.transaction});
+}

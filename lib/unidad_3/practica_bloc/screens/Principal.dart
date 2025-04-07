@@ -11,12 +11,14 @@ class PrincipalSceen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cuenta'),
+        centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<BankAccountBloc>().add(DepositEvent(
-              transaction:
-                  Transaction(amount: 20, transactionType: "Deposito")));
+          Navigator.pushNamed(
+            context,
+            "/Unidad_3/practica_bloc/transaccion",
+          );
         },
         child: const Icon(Icons.add),
       ),
@@ -32,7 +34,9 @@ class PrincipalSceen extends StatelessWidget {
           ),
           context.select((BankAccountBloc account) => Text(
               account.state.balance.toString(),
-              style: const TextStyle(fontSize: 30))),
+              style: account.state.balance < 0
+                  ? const TextStyle(fontSize: 30, color: Colors.red)
+                  : const TextStyle(fontSize: 30))),
           Expanded(
             child: ListView.builder(
                 itemCount:
@@ -44,7 +48,9 @@ class PrincipalSceen extends StatelessWidget {
                         .read<BankAccountBloc>()
                         .state
                         .transactions[index]
-                        .transactionType!),
+                        .transactionType!
+                        .toLowerCase()
+                        .replaceAll(RegExp("deposito"), "depósito")),
                     trailing: Text(
                         "\$ ${context.read<BankAccountBloc>().state.transactions[index].amount}"),
                   );

@@ -20,6 +20,7 @@ import 'package:holaflutter/unidad_3/camara_practica/CamaraScreen.dart';
 import 'package:holaflutter/unidad_3/practica_bloc/bloc/bank_account_bloc.dart';
 import 'package:holaflutter/unidad_3/practica_bloc/screens/Principal.dart';
 import 'package:holaflutter/unidad_3/practica1/screens/PrincipalScreen.dart';
+import 'package:holaflutter/unidad_3/practica_bloc/screens/transaccion_screen.dart';
 import 'package:holaflutter/unidad_3/productos_practica/Screens/actualizar_screen.dart';
 import 'package:holaflutter/unidad_3/productos_practica/Screens/agregar_screen.dart';
 import 'package:holaflutter/unidad_3/productos_practica/Screens/carrito_screen.dart';
@@ -108,6 +109,8 @@ class MyMaterialApp extends StatelessWidget {
         '/Unidad_3/productos': (context) => const ProductosScreen(),
         '/Unidad_3/practica1': (context) => const PrincipalscreenExamen(),
         '/Unidad_3/practica_bloc': (context) => PrincipalSceen(),
+        '/Unidad_3/practica_bloc/transaccion': (context) =>
+            const TransaccionScreen(),
       },
       initialRoute: '/principal',
     );
