@@ -5,8 +5,7 @@ sealed class BankAccountEvent {
 }
 
 class DepositEvent extends BankAccountEvent {
-  final double amount;
   final Transaction transaction;
 
-  DepositEvent({required this.amount, required this.transaction});
+  DepositEvent({required this.transaction});
 }

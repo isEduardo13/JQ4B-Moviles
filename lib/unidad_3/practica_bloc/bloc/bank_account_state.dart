@@ -14,7 +14,9 @@ class BankAccountState extends Equatable {
   }) =>
       BankAccountState(
         transactions: transactions ?? this.transactions,
-        balance: balance ?? this.balance,
+        balance: transactions!
+                .fold(0, (preValue, element) => preValue! + element.amount!) ??
+            this.balance,
       );
 
   @override

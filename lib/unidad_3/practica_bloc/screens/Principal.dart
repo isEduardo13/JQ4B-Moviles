@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:holaflutter/unidad_3/practica_bloc/bloc/bank_account_bloc.dart';
+import 'package:holaflutter/unidad_3/practica_bloc/models/transaction.dart';
 
 class PrincipalSceen extends StatelessWidget {
   const PrincipalSceen({super.key});
@@ -7,25 +10,48 @@ class PrincipalSceen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Principal'),
+        title: const Text('Cuenta'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read<BankAccountBloc>().add(DepositEvent(
+              transaction:
+                  Transaction(amount: 20, transactionType: "Deposito")));
+        },
+        child: const Icon(Icons.add),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Pantalla Principal',
-              style: TextStyle(fontSize: 24),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Regresar'),
-            ),
-          ],
-        ),
-      ),
+          child: Column(
+        children: [
+          const Text(
+            "Saldo",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          context.select((BankAccountBloc account) => Text(
+              account.state.balance.toString(),
+              style: const TextStyle(fontSize: 30))),
+          Expanded(
+            child: ListView.builder(
+                itemCount:
+                    context.read<BankAccountBloc>().state.transactions.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text("Movimiento"),
+                    subtitle: Text(context
+                        .read<BankAccountBloc>()
+                        .state
+                        .transactions[index]
+                        .transactionType!),
+                    trailing: Text(
+                        "\$ ${context.read<BankAccountBloc>().state.transactions[index].amount}"),
+                  );
+                }),
+          ),
+        ],
+      )),
     );
   }
 }
