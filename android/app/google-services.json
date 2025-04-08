@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:578204003859:android:edbe07745666938eaad9e6",
+        "mobilesdk_app_id": "1:578204003859:android:cb88ef5233c0ee76aad9e6",
         "android_client_info": {
-          "package_name": "com.example.holaflutter"
+          "package_name": "com.eduardojq7b"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "578204003859-omve5p5bk0q4esnci1825ujabmjela60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBXk1g2XErXMg5s-qc9VW4ii5qxCOIdY2E"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578204003859-omve5p5bk0q4esnci1825ujabmjela60.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "578204003859-7g0douspa4r6l4do6h2np0vafc3r6g7b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.holaflutter"
+              }
+            }
+          ]
         }
       }
     }
