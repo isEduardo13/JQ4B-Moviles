@@ -35,6 +35,13 @@ class PantallaPrincipal extends StatelessWidget {
             label: 'unidad 3',
             onTap: () => Navigator.pushNamed(context, '/Unidad_3'),
           ),
+          SpeedDialChild(
+            child: Icon(Icons.notifications, color: Colors.white),
+            backgroundColor: Colors.red,
+            label: 'Notificaciones',
+            onTap: () =>
+                Navigator.pushNamed(context, '/Unidad_X/notificaciones'),
+          ),
         ],
       ),
     );

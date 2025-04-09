@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:holaflutter/pantalla_principal.dart';
+import 'package:holaflutter/presentation/blocs/bloc/notificaciones_bloc.dart';
+import 'package:holaflutter/screens/notificaciones_screen.dart';
 import 'package:holaflutter/unidad_1/practica_1/screens/scaffold.dart';
 import 'package:holaflutter/unidad_2/practica1/main/scaffold_unidad2_widget.dart';
 import 'package:holaflutter/unidad_2/practica1/provider/counter_provider.dart';
@@ -35,6 +38,7 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -67,8 +71,15 @@ class MyAppBLoc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => BankAccountBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => BankAccountBloc(),
+        ),
+        BlocProvider(
+          create: (context) => NotificacionesBloc(),
+        ),
+      ],
       child: MyMaterialApp(),
     );
   }
@@ -111,6 +122,7 @@ class MyMaterialApp extends StatelessWidget {
         '/Unidad_3/practica_bloc': (context) => PrincipalSceen(),
         '/Unidad_3/practica_bloc/transaccion': (context) =>
             const TransaccionScreen(),
+        '/Unidad_X/notificaciones': (context) => const NotificacionesScreen(),
       },
       initialRoute: '/principal',
     );
